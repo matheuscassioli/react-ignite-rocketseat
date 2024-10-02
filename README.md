@@ -2,10 +2,12 @@
 
 Este projeto faz parte da **trilha Ignite** da Rocketseat, que ensina os conceitos essenciais de **React** para a web.
 
-A trilha começa com os pilares fundamentais do React: **Estado**, **Propriedades** e **Componentes**, até as práticas mais avançadas, como testes e deploy automatizados. 
+A trilha começa com os pilares fundamentais do React: **Estado**, **Propriedades** e **Componentes**, até as práticas mais avançadas, como testes e deploy automatizados.
 
 Este projeto foi desenvolvido utilizando **Vite**, uma ferramenta moderna de build, para garantir uma experiência de desenvolvimento ágil e eficiente.
---- 
+
+---
+
 ## Acesse o projeto online
 
 ###  **O projeto está disponível no GitHub Pages!** Você pode acessá-lo através do seguinte link: [Projeto no GitHub Pages](https://matheuscassioli.github.io/react-ignite-rocketseat/)
