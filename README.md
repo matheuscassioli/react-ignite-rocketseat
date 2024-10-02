@@ -8,7 +8,7 @@ Este projeto foi desenvolvido utilizando **Vite**, uma ferramenta moderna de bui
 --- 
 ## Acesse o projeto online
 
-🌐 **O projeto está disponível no GitHub Pages!** Você pode acessá-lo através do seguinte link: [Projeto no GitHub Pages](https://matheuscassioli.github.io/react-ignite-rocketseat/)
+###  **O projeto está disponível no GitHub Pages!** Você pode acessá-lo através do seguinte link: [Projeto no GitHub Pages](https://matheuscassioli.github.io/react-ignite-rocketseat/)
 ---
 ## Como rodar o projeto
 
