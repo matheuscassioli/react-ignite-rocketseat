@@ -9,7 +9,7 @@ const Posts = (props) => {
             <header>
                 <div className={styles.author}>
                     <img className={styles.avatar} src="https://avatars.githubusercontent.com/u/82168386?v=4" />
-                    <div>
+                    <div className={styles.authorInfo}>
                         <strong>{props.author}</strong>
                         <span>{props.function}</span>
                     </div>
@@ -25,6 +25,15 @@ const Posts = (props) => {
                 <p><a href="#">teste1</a></p>
                 <p><a href="#">teste1</a></p>
             </div>
+
+            <hr />
+
+            <form className={styles.commentForm}>
+                <strong>Deixe seu feedback</strong>
+                <textarea placeholder="Deixe um comentário" />
+                <button type='submit'>Comente</button>
+            </form>
+
         </article>
     )
 }
