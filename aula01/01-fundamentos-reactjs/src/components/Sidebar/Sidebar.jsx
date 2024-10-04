@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./Sidebar.module.css"
 import { PencilLine } from "phosphor-react"
 import Avatar from '../Avatar/Avatar'
 
 const Sidebar = () => {
+
+    const [dinamicImage, setDinamicImage] = useState('')
+    const dinamicsUrls = [
+        "https://plus.unsplash.com/premium_photo-1681433343461-b2578d44f7ac?q=80&w=1503&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://media.istockphoto.com/id/1404221665/pt/foto/abstract-defocused-lens-color-gradient-on-black-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=Sr_bYAMsFKh2yYG97OXY711oiA16dB31mE8phCzmlWU=",
+        "https://plus.unsplash.com/premium_photo-1668650610258-043278428a93?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHVycGxlfGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1617957689187-997a52cd5e76?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHB1cnBsZXxlbnwwfHwwfHx8MA%3D%3D"
+    ]
+
+    useEffect(() => {
+        let currentIndex = 0;
+        const loopingBackGroundImage = setInterval(() => {
+            setDinamicImage(dinamicsUrls[currentIndex]);
+            currentIndex++;
+            if (currentIndex >= dinamicsUrls.length) {
+                currentIndex = 0;
+            }
+        }, 1500);
+        return () => clearInterval(loopingBackGroundImage);
+    }, []);
+
     return (
         <aside className={styles.sidebar}>
-            <img className={styles.cover} src="https://plus.unsplash.com/premium_photo-1681433343461-b2578d44f7ac?q=80&w=1503&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+            <img className={styles.cover} src={dinamicImage} />
 
             <div className={styles.profile}>
                 <Avatar src="https://avatars.githubusercontent.com/u/82168386?v=4" />
