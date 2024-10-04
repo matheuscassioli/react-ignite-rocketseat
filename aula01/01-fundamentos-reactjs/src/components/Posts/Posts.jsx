@@ -1,6 +1,8 @@
 import React from 'react'
 import "../../global.css"
 import styles from "./Posts.module.css"
+import Comment from '../Comment/Comment'
+import Avatar from '../Avatar/Avatar'
 
 const Posts = (props) => {
     return (
@@ -8,7 +10,7 @@ const Posts = (props) => {
             className={styles.posts}>
             <header>
                 <div className={styles.author}>
-                    <img className={styles.avatar} src="https://avatars.githubusercontent.com/u/82168386?v=4" />
+                    <Avatar src="https://avatars.githubusercontent.com/u/82168386?v=4" />
                     <div className={styles.authorInfo}>
                         <strong>{props.author}</strong>
                         <span>{props.function}</span>
@@ -31,8 +33,16 @@ const Posts = (props) => {
             <form className={styles.commentForm}>
                 <strong>Deixe seu feedback</strong>
                 <textarea placeholder="Deixe um comentário" />
-                <button type='submit'>Comente</button>
+                <footer>
+                    <button type='submit'>Publicar</button>
+                </footer>
             </form>
+
+            <div className={styles.commentList}>
+                <Comment />
+                <Comment />
+                <Comment />
+            </div>
 
         </article>
     )

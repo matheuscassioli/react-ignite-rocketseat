@@ -7,16 +7,7 @@
 .posts+.posts {
     margin-top: 2rem;
 }
-
-.avatar {
-    box-sizing: initial;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 8px;
-    border: 4px solid var(--purple-600);
-    padding: 4px;
-}
-
+ 
 .content {
     line-height: 1.6;
     color: var(--gray-300);
@@ -84,7 +75,7 @@
 
 .commentForm textarea {
     line-height: 1.4;
-    border: solid 2px var(--purple-400);
+    border: solid 2px var(--purple-600);
     border-radius: 8px;
     padding: 0.875rem;
     background-color: var(--gray-900);
@@ -93,16 +84,25 @@
     height: 6rem;
 }
 
-.commentForm button {
+.commentForm button[type=submit] {
     width: fit-content;
     background-color: var(--purple-600);
     color: var(--white);
     padding: 1rem 1.5rem;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: bold; 
 }
 
-.commentForm button:hover {
+.commentForm button[type=submit]:hover {
     background-color: var(--purple-500);
     transition: background-color 0.1s;
+}
+.commentForm  footer{
+    visibility: hidden;
+    max-height: 0;
+}
+
+.commentForm:focus-within footer{
+    visibility: visible;  
+    max-height: none;
 }

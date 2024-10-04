@@ -3,21 +3,27 @@
     --gray-100: #f3f4f6;
     --gray-300: #d1d5db;
     --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #29292E;
     --gray-800: #1f2937;
     --gray-900: #111827;
     --purple-100: #f3e8ff;
     --purple-300: #d8b4fe;
     --purple-400: #c084fc;
-    --purple-500: #a855f7;   
+    --purple-500: #a855f7;
     --purple-600: #9333ea;
     --purple-700: #7e22ce;
     --purple-800: #6b21a8;
     --purple-900: #581c87;
     --green-500: #00875f;
     --line-color: #323238;
+    --red-500: #F75A68;
 }
-:focus{
+
+
+:focus {
     outline: transparent;
+    box-shadow: 0 0 0 2px var(--purple-500);
 }
 
 * {
@@ -40,4 +46,3 @@ button {
     font-weight: 400;
     font-size: 1rem;
 }
-
