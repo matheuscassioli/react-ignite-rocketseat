@@ -4,7 +4,7 @@ import styles from "./Comment.module.css"
 import React from 'react'
 import Avatar from "../Avatar/Avatar"
 
-const Comment = () => {
+const Comment = ({ content }) => {
     return (
         <div className={styles.comment}>
             <Avatar
@@ -24,7 +24,7 @@ const Comment = () => {
 
                     </header>
                     <p>
-                        Muito bom, parabens!
+                        {content}
                     </p>
                 </div>
                 <footer>

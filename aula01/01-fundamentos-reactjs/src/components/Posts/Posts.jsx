@@ -1,47 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../../global.css"
 import styles from "./Posts.module.css"
 import Comment from '../Comment/Comment'
 import Avatar from '../Avatar/Avatar'
+import { format, formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
-const Posts = (props) => {
+const Posts = ({ author, role, avatarImage, publishedAt, content }) => {
+
+    const [commentList, setCommentList] = useState(['Post muito legal!'])
+    const [newComment, setNewComment] = useState('')
+
+    const publishedDateFormated = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+        locale: ptBR,
+    });
+
+    const relativeHourRelativeNow = formatDistanceToNow(publishedAt, {
+        locale: ptBR,
+        addSuffix: true,
+    });
+
+    const onSubmit = e => {
+        e.preventDefault()
+        if (newComment == '') {
+            alert('O campo comentario, não pode ser vazio')
+            return;
+        }
+        setCommentList([...commentList, newComment])
+        setNewComment('')
+    }
+
     return (
         <article
             className={styles.posts}>
             <header>
                 <div className={styles.author}>
-                    <Avatar src="https://avatars.githubusercontent.com/u/82168386?v=4" />
+                    <Avatar src={avatarImage} />
                     <div className={styles.authorInfo}>
-                        <strong>{props.author}</strong>
-                        <span>{props.function}</span>
+                        <strong>{role}</strong>
+                        <span>{author}</span>
                     </div>
                 </div>
-                <time dateTime='2022-05-22 08:56:00'>
-                    publicado há 1h
+                <time title={publishedDateFormated} time={publishedAt.toISOString()}>
+                    {relativeHourRelativeNow}
                 </time>
             </header>
 
             <div className={styles.content}>
-                <p>teste1</p>
-                <p>teste1</p>
-                <p><a href="#">teste1</a></p>
-                <p><a href="#">teste1</a></p>
+                {content.map((text, index) => {
+                    return <p key={index}>{text.type == 'paragraph' ? `${text.content}` : <a href="#">{text.content}</a>}</p>
+                })}
             </div>
 
             <hr />
 
-            <form className={styles.commentForm}>
+            <form onSubmit={onSubmit} className={styles.commentForm}>
                 <strong>Deixe seu feedback</strong>
-                <textarea placeholder="Deixe um comentário" />
+                <textarea
+                    id="comment-field"
+                    onChange={(e) => setNewComment(e.target.value)}
+                    value={newComment}
+                    placeholder="Deixe um comentário"
+                />
                 <footer>
                     <button type='submit'>Publicar</button>
                 </footer>
             </form>
 
             <div className={styles.commentList}>
-                <Comment />
-                <Comment />
-                <Comment />
+                {commentList.map(comment => {
+                    return <Comment content={comment} key={comment} />
+                })}
             </div>
 
         </article>
